@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+    cli:
+        build:
+            context: .
+            target: dev
+            args:
+                SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
+#        command: ./bin/init.sh
+#        environment:
+#            APPLICATION_ENV: development
+        volumes:
+            - .:/usr/src/bbbmeter
+#        ports:
+#            - 80:80
+#            - 443:443
+        tty: true
+#
+#volumes:
+#    composer:
