@@ -12,29 +12,14 @@ class Client
     public function __construct(private GuzzleClient $guzzleClient)
     { }
 
-    public function searchCommentsAboutCandidates()
+    public function searchCommentsAboutCandidates(iterable $candidates)
     {
-        $result = $this->guzzleClient->request('GET', '/2/tweets/search/recent', [
-            'query' => [
-                'query' => 'projota'
-            ],
-        ]);
-
-
-//        $guzzle = new Client([
-//            'base_uri' => 'https://api.twitter.com/',
-//            'headers' => [
-//                'Authorization' => sprintf('Bearer %s', $token),
+//        $result = $this->guzzleClient->request('GET', '/2/tweets/search/recent', [
+//            'query' => [
+//                'query' => 'bbb negodi'
 //            ],
-//            'debug' => true,
 //        ]);
 //
-//        $result = $guzzle->request('GET', '/2/tweets/search/recent', [
-//            'query' => [
-//                'query' => 'projota'
-//            ],
-//        ]);
-
-        dump(json_decode($result->getBody()->getContents(), true));
+//        dump(json_decode($result->getBody()->getContents(), true));
     }
 }

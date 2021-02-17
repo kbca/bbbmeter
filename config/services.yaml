@@ -26,10 +26,15 @@ services:
                 base_uri: 'https://api.twitter.com/'
                 headers:
                     Authorization: 'Bearer %twitter.token%'
+                debug: true
 
     Kbca\BBBMeter\Infra\Twitter\Client:
         arguments:
             $guzzleClient: '@guzzle.twitter.client'
+
+    Kbca\BBBMeter\Infra\Command\FeedCommand:
+        arguments:
+            $jsonCandidatesFilepath: 'data/candidates.json'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
